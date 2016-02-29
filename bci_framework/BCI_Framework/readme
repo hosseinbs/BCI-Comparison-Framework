@@ -1,0 +1,4 @@
+for BCI competition IV dataset number 1, I assumed that the movement has begun at the start of each trial. Because I want to 
+concatenate NC parts of two consecutive trials. This way implementation of feature extraction was easier.
+
+The scale of window size is 1/25 of its original size. The scale of window_overlap_size is 1/10. 

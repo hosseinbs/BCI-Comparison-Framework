@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -S /bin/bash
+#PBS -M hosseinbs@gmail.com
+#PBS -m bea
+#PBS -l mem=4gb
+module load application/python/2.7.3
+module load python/2.7.5.anaconda
+module load python/2.7.3
+cd $PBS_O_WORKDIR
+ echo "Current working directory is `pwd`"
+echo "Starting: run at: `date`"
+python ./BCI_Framework/Single_Job_runner.py BCI_Framework LDA BP SM2 22 False channel_type=C34Z-1 discard_nc_end=64 discard_mv_begin=0 window_size=84 window_overlap_size=24 discard_mv_end=0 discard_nc_begin=64 fe_params=None
+echo "Program finished with exit code $? at: `date`"

@@ -1,0 +1,38 @@
+train_data_dir_name_str==../bci_data/BCICIII3b/TrainData
+test_data_dir_name_str==../bci_data/BCICIII3b/TestData
+feature_matrix_dir_name_str==../features/BCICIII3b
+results_path_str==../results/BCICIII3b
+results_opt_path_str==../results/BCICIII3b/opt
+dataset_str==BCICIII3b
+channels_str==ALL
+subject_names_str==O3,S4,X11
+number_of_subjects==3
+sampling_rate==125
+trial_size==1000
+movement_start_list==500, 500, 500
+movement_trial_size_list==500, 375, 375
+channel_names_str==C3,C4
+number_of_classes==2
+number_of_channels==2
+class_labels_list==1,2
+cost_function_str==CCR
+dataset_type_str==sync
+nc_class_label==0
+filter_name_str==butter
+cutoff_frequencies_low_list==8, 16
+cutoff_frequencies_high_list==12, 24
+discarded_samples_begining_movement_list==0, 50, 100, 150, 50, 100
+discarded_samples_end_movement_list==0, 150, 100, 50, 100, 50
+discarded_samples_begining_nc_list==0
+discarded_samples_end_nc_list==0
+windowSize_crossval_list==-1
+window_overlap_size_crossval_list==0
+number_of_all_trials_list==242, 540, 540
+number_of_cvs_dict=={'SVM':5, 'MLP': 5, 'RANDOM_FOREST': 10, 'LogisticRegression':5, 'Boosting':8, 'LDA':5, 'QDA':5}
+number_of_cv_folds==5
+n_jobs==1
+n_trees==200
+durations_dict=={'SVM':50, 'MLP': 45, 'RANDOM_FOREST': 4, 'LogisticRegression':2, 'Boosting':14, 'LDA':1, 'QDA':1}
+logging_level_str==INFO
+fe_params_dict=={'AR':[5,6,7,8,9,10]}
+cost_function_str==zero_one

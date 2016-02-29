@@ -1,0 +1,44 @@
+{
+"window_start" : {
+  "name":"window_start",
+  "type":"int",
+  "min":2,
+  "max":15,
+  "size":1
+},
+"window_length" : {
+  "name":"window_length",
+  "type":"int",
+  "min":14,
+  "max":30,
+  "size":1
+},
+"c3_start" : {
+  "name":"c3_start",
+  "type":"int",
+  "min":2,
+  "max":112,
+  "size":1
+},
+"c3_length" : {
+  "name":"c3_length",
+  "type":"int",
+  "min":2,
+  "max":6,
+  "size":1
+},
+"c4_start" : {
+  "name":"c4_start",
+  "type":"int",
+  "min":2,
+  "max":112,
+  "size":1
+},
+"c4_length" : {
+  "name":"c4_length",
+  "type":"int",
+  "min":2,
+  "max":6,
+  "size":1
+}
+}

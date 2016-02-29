@@ -1,0 +1,32 @@
+train_data_dir_name_str==../bci_data/SM2/TrainData
+test_data_dir_name_str==../bci_data/SM2/TestData
+feature_matrix_dir_name_str==../features/SM2
+results_path_str==../results/SM2
+results_opt_path_str==../results/SM2/opt
+dataset_str==SM2
+subject_names_str==22,23,24,25
+number_of_all_trials_list==635, 387, 414, 563
+number_of_subjects==4
+sampling_rate==128
+number_of_classes==2
+number_of_channels==10
+channel_names_str==FC3,FC1,FCz,FC2,FC4,C3,C1,Cz,C2,C4
+class_labels_list==1,0
+discarded_samples_begining_movement_list==0, 64, 128, 64, 128
+discarded_samples_end_movement_list==0, 0, 0, 64, 64
+discarded_samples_begining_nc_list==0, 64
+discarded_samples_end_nc_list==0, 64
+filter_name_str==butter
+cutoff_frequencies_low_list==8, 16
+cutoff_frequencies_high_list==12, 24
+windowSize_crossval_list==84, 128
+window_overlap_size_crossval_list==24, 40
+dataset_type_str==async
+number_of_cvs_dict=={'SVM':5, 'MLP': 5, 'RANDOM_FOREST': 10, 'LogisticRegression':5, 'Boosting':7, 'LDA':5, 'QDA':5}
+number_of_cv_folds==5
+n_jobs==1
+n_trees==200
+durations_dict=={'SVM':160, 'MLP': 100, 'RANDOM_FOREST': 95, 'RANDOM_FOREST_Reg': 10, 'SVR': 25, 'linear':5, 'LogisticRegression':30, 'Boosting':95, 'Boosting_Reg':10, 'LDA':10, 'QDA':10}
+logging_level_str==INFO
+fe_params_dict=={'AR':[5, 6, 7, 8, 9, 10]}
+cost_function_str==fp_rate_fn_rate

@@ -1,0 +1,12 @@
+{
+"window_start" : {
+  "name":"window_start",
+  "min":0,
+  "max":15
+},
+"window_length" : {
+  "name":"window_length",
+  "min":14,
+  "max":30
+}
+}
