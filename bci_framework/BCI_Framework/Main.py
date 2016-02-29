@@ -124,54 +124,54 @@ class Main:
         """submits a job to train the learner"""
 
         subject = subject.replace('\n','')
-        if os.name == 'nt':
-            self.logging.info('begin running job on linux')
+        # if os.name == 'nt':
+        #     self.logging.info('begin running job on cluster')
+        #
+        #     temp = self.bash_script[self.python_run_cmd_ind]
+        #     if type(params_dict['fe_params']) is list:
+        #         self.bash_script[self.python_run_cmd_ind] = self.bash_script[self.python_run_cmd_ind] + " " + self.dir + " " + self.learner_name + " " + self.feature_extractor_name + " "+ self.dataset_name + " " + subject + " " + str(optimal) +  " " + ' '.join(['%s=%s' % (key, value) for (key, value) in params_dict.items() if key != 'fe_params']) + ' fe_params=' + ','.join(str(e) for e in params_dict['fe_params'])+ '\n'
+        #     else:
+        #         self.bash_script[self.python_run_cmd_ind] = self.bash_script[self.python_run_cmd_ind] + " " + self.dir + " " + self.learner_name + " " + self.feature_extractor_name + " "+ self.dataset_name + " " + subject + " " + str(optimal) +  " " + ' '.join(['%s=%s' % (key, value) for (key, value) in params_dict.items()]) + '\n'
+        #
+        #     with open('myRun.pbs', 'w') as my_run_file:
+        #         my_run_file.writelines(self.bash_script)
+        #
+        #     job_name = ''.join(['%s_' %(value) for (key, value) in params_dict.items() if key != 'fe_params']) + subject + self.feature_extractor_name + self.learner_name
+        #     print job_name
+        #     job_name = str(hash(job_name)%(10**15))
+        #
+        #     submit_command = "qsub -l walltime=" + str(self.config.configuration["durations_dict"][self.learner_name]) + ":00:00 -N " + job_name  + ' ' + my_run_file.name
+        #
+        #     #################################################### check if job is already submitted, do not submit it again
+        #     command = 'qstat -u hosseinb'
+        #     p = os.popen( command,"r")
+        #     submitted_jobs = p.readlines()[5:]
+        #     current_already_submitted = False
+        #
+        #     for submitted_job in submitted_jobs:
+        #         if job_name in submitted_job:
+        #             current_already_submitted = True
+        #             print 'job already exists'
+        #             break
+        #
+        #     if not current_already_submitted:
+        #         try :
+        #             self.logging.info('command to submit the job:\n %s', submit_command)
+        #             os.system(submit_command)
+        #             self.logging.info('job submitted without error!!!')
+        #
+        #         except:
+        #             self.logging.info('exception in job submission')
+        #
+        #     time.sleep(2)
+        #
+        #     self.bash_script[self.python_run_cmd_ind] = temp
+        #
+        # elif os.name == 'posix':
             
-            temp = self.bash_script[self.python_run_cmd_ind]
-            if type(params_dict['fe_params']) is list:
-                self.bash_script[self.python_run_cmd_ind] = self.bash_script[self.python_run_cmd_ind] + " " + self.dir + " " + self.learner_name + " " + self.feature_extractor_name + " "+ self.dataset_name + " " + subject + " " + str(optimal) +  " " + ' '.join(['%s=%s' % (key, value) for (key, value) in params_dict.items() if key != 'fe_params']) + ' fe_params=' + ','.join(str(e) for e in params_dict['fe_params'])+ '\n'
-            else:
-                self.bash_script[self.python_run_cmd_ind] = self.bash_script[self.python_run_cmd_ind] + " " + self.dir + " " + self.learner_name + " " + self.feature_extractor_name + " "+ self.dataset_name + " " + subject + " " + str(optimal) +  " " + ' '.join(['%s=%s' % (key, value) for (key, value) in params_dict.items()]) + '\n'
-                    
-            with open('myRun.pbs', 'w') as my_run_file:
-                my_run_file.writelines(self.bash_script)
-            
-            job_name = ''.join(['%s_' %(value) for (key, value) in params_dict.items() if key != 'fe_params']) + subject + self.feature_extractor_name + self.learner_name
-            print job_name
-            job_name = str(hash(job_name)%(10**15)) 
-
-            submit_command = "qsub -l walltime=" + str(self.config.configuration["durations_dict"][self.learner_name]) + ":00:00 -N " + job_name  + ' ' + my_run_file.name 
-
-            #################################################### check if job is already submitted, do not submit it again            
-            command = 'qstat -u hosseinb'
-            p = os.popen( command,"r")
-            submitted_jobs = p.readlines()[5:]
-            current_already_submitted = False
-            
-            for submitted_job in submitted_jobs:
-                if job_name in submitted_job:
-                    current_already_submitted = True
-                    print 'job already exists'
-                    break
-            
-            if not current_already_submitted:
-                try :
-                    self.logging.info('command to submit the job:\n %s', submit_command)
-                    os.system(submit_command)
-                    self.logging.info('job submitted without error!!!')
-    
-                except:
-                    self.logging.info('exception in job submission')
-
-            time.sleep(2)
-
-            self.bash_script[self.python_run_cmd_ind] = temp 
-                      
-        elif os.name == 'posix':
-            
-            self.logging.info('begin running job on windows')
-            job_runner = SJR.Single_Job_Runner(self.dir, self.learner_name, self.feature_extractor_name,self.dataset_name, subject, params_dict.copy(),optimal)
-            job_runner.run_learner()
+        self.logging.info('begin running job on a local machine')
+        job_runner = SJR.Single_Job_Runner(self.dir, self.learner_name, self.feature_extractor_name,self.dataset_name, subject, params_dict.copy(),optimal)
+        job_runner.run_learner()
         
     def set_results_path(self):
         """set the results paths for both the cross validation and optimal learner"""
