@@ -42,8 +42,9 @@ if __name__ == '__main__':
     if train_or_test == 'run':
         print "run"
         bcic = Main.Main('BCI_Framework', dataset_name, classifier, feature, channels, number_of_CSPs, myPython_path)
-        bcic.write_feature_matrices_gridsearch()
-        # bcic.run_learner_gridsearch()
+        bcic.run_learner_gridsearch()
+        # bcic.write_feature_matrices_gridsearch()
+        
     else:
         print "eval"
         bcic = Main.Main('BCI_Framework', dataset_name, classifier, feature)
